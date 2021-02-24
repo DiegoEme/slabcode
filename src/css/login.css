@@ -27,9 +27,9 @@
 .login {
   width: 50vw;
   height: 100%; /* nbueva linea */
-  border: 2px solid black;
+  /*  border: 2px solid black; */
   text-align: center;
-  padding-top: 150px;
+  /*  padding-top: 150px; */
   /* margin-top: 150px; */
   display: flex;
   flex-direction: column;
@@ -37,16 +37,20 @@
   align-items: center;
 }
 
-.login {
-  /* width: 497px;
-  height: 580px; */
-}
+/* .login {
+  width: 497px;
+  height: 580px; 
+} */
 
 .login__container {
   background: #ffffff;
   width: 497px;
   height: 580px;
   padding: 43px;
+  margin-right: 230px;
+}
+.login__container > img {
+  display: none;
 }
 
 .logo img {
@@ -89,6 +93,10 @@ hr {
   margin: 1rem auto;
   color: #1592e6;
   font-size: 16px;
+  cursor: pointer;
+}
+.login__forgot::after {
+  content: "Olvidé mi contraseña";
 }
 
 .login__btn {
@@ -111,10 +119,57 @@ hr {
     rgba(223, 35, 48, 1) 99%
   );
   margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
 .register {
   border: 1px solid #cdcdcd;
   color: #828282;
   margin-top: 2rem;
+}
+
+@media screen and (max-width: 600px) {
+  .container .bg {
+    background-image: none;
+  }
+
+  .logo {
+    display: none;
+  }
+  .logo img {
+    display: none;
+  }
+  input {
+    width: 236px;
+  }
+  .login__btn {
+    width: 220px;
+    padding: 15px 0;
+  }
+  hr {
+    width: 220px;
+    margin: auto;
+  }
+  .login {
+    width: 100vw;
+  }
+  .login__container {
+    height: 100vh;
+    width: auto;
+    margin: 0;
+
+    padding: 55px;
+  }
+  .login__container > img {
+    display: block;
+    margin: auto;
+    margin-top: 0;
+  }
+  .login__forgot {
+    margin-top: 2rem;
+    color: #707070;
+  }
+  .login__forgot::after {
+    content: "Recordar mi contraseña";
+  }
 }
