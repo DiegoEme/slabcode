@@ -16,6 +16,7 @@ import Cuentanos from "../assets/Trazado 20.svg";
 import Logout from "../assets/Grupo 26.svg";
 
 function Products() {
+    const [cosas, setCosas] = useState([]); 
     const [sidebar, setSidebar] = useState(false);
 
     const sidebarData = [
@@ -104,11 +105,24 @@ function Products() {
                 Authorization: 'Bearer ' + localStorage.getItem('token')
             }
         }
+        
+            /* axios.get(baseUrl, config)
+            .then((response) => {
+                setCosas(response.data.data);
+                console.log('cosas', cosas)})
+               
+            .catch((error) => {console.log(error)}) */
 
-        axios.get(baseUrl, config)
-        .then((response) => {console.log('products', response)})
-        .catch((error) => {console.log(error)})
-    }) 
+            fetch(baseUrl, config)
+            .then((res) => res.json())
+            .then((data) => {
+              
+              setCosas(data.data);
+              
+            });
+            console.log(cosas);
+        
+    }, []) 
 
     return (
         <>
@@ -165,6 +179,9 @@ function Products() {
                 })}
             </ul>
         </nav>
+        <main>afsafsadfsdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+              {cosas.map((item, index) => {return <li key={index}>{item.id}</li>})}
+        </main>
            
         </>
     )
