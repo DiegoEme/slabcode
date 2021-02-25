@@ -29,7 +29,7 @@ function Login() {
         console.log('token', response.data.data.token)
       })
       .then(response => {
-        window.location.href="./products";
+        window.location.href="./drawer";
       }) 
       .catch((error) => {
         console.log(error);
