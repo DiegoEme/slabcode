@@ -25,8 +25,12 @@ function Login() {
     await axios
       .post(baseUrl, { email: email, password: password, type: "User" })
       .then((response) => {
-        console.log(response.data);
+        localStorage.setItem('token', response.data.data.token);
+        console.log('token', response.data.data.token)
       })
+      .then(response => {
+        window.location.href="./products";
+      }) 
       .catch((error) => {
         console.log(error);
       });
