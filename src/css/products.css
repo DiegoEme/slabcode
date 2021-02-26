@@ -89,7 +89,7 @@
 } */
 
 .nav-text:hover {
-  background-color: blue;
+  background-color: #c1000d;
 }
 
 .logo {
@@ -97,6 +97,56 @@
   margin: 20px auto;
 }
 
+/****** MAIN  AREA*******/
+
+/* .product-image {
+  width: 100px;
+  height: 100px;
+}
+ */
+
 main {
-  margin-left: 300px;
+  display: flex;
+  margin-top: 60px;
+  margin-left: 340px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  width: 242px;
+  height: 282px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.11);
+  margin: 60px;
+  /* border: 1px solid black; */
+  font-size: 20px;
+}
+
+.image-box {
+  height: 160px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.image-box .product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto;
+}
+
+.name {
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  margin-bottom: 0.7rem;
+}
+
+.points {
+  background-color: #fe4518;
+  padding: 0.5rem;
+  color: #ffffff;
 }

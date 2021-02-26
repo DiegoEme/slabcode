@@ -179,8 +179,21 @@ function Products() {
                 })}
             </ul>
         </nav>
-        <main>afsafsadfsdfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              {cosas.map((item, index) => {return <li key={index}>{item.id}</li>})}
+        <main>
+              {cosas.map((item, index) => {
+                  return (
+                      <div key={index} className="product-card">
+                          <div className="image-box">
+                            <img src={item.image_url} className="product-image" />
+                          </div>
+                         
+                          <span className="name">{item.name}</span>
+                          <span className="price">$ {item.value}</span>
+                          <span className="points">Obtienes {item.points} puntos</span>  
+                      </div>
+                  
+                  )
+                  })}
         </main>
            
         </>
