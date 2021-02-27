@@ -19,6 +19,8 @@
 
 .navbar2 {
   background-color: #f5f5f5;
+  color: #828282;
+  font-size: 16px;
   display: flex;
   height: 120px;
   display: grid;
@@ -29,6 +31,32 @@
   padding: 37px auto;
   align-items: center;
   box-shadow: 0 25px 70px rgba(0, 0, 0, 0.11);
+}
+
+.navbar2-link {
+  text-decoration: none;
+  letter-spacing: 3.2px;
+}
+
+.navbar2-link:visited,
+.navbar2-link:active,
+.navbar2-link:link {
+  text-decoration: none;
+  color: #828282;
+}
+
+.btn {
+  all: unset;
+  width: 150px;
+  height: 45px;
+  border-radius: 22.5px;
+  background-color: #fe4518;
+  color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.11);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .menu-bars {
@@ -139,14 +167,42 @@ main {
 
 .name {
   margin-bottom: 0.5rem;
+  color: #828282;
 }
 
 .price {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.9rem;
+  color: #828282;
 }
 
 .points {
   background-color: #fe4518;
-  padding: 0.5rem;
+  padding: 0.6rem;
   color: #ffffff;
+  box-shadow: 6px 9px 15px #0000000f;
+}
+
+@media screen and (max-width: 1380px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .navbar {
+    display: block;
+  }
+  main {
+    margin: auto;
+  }
+  .product-card {
+    margin: 20px;
+    margin: 20px auto;
+  }
+
+  .btn {
+    display: none;
+  }
+
+  .lupa {
+    display: none;
+  }
 }

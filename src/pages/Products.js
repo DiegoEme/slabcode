@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import '../css/products.css'
 import {Link} from 'react-router-dom';
-import axios from 'axios';
 import Logo from "../assets/logo.svg";
+import LogoRojo from "../assets/logorojo.svg";
 import Oficina from "../assets/Trazado 5.svg";
 import Catalogo from "../assets/Grupo 18.svg";
 import Bonos from "../assets/Grupo 22.svg";
@@ -14,6 +14,7 @@ import Recursos from "../assets/Trazado 19.svg";
 import Legal from "../assets/Trazado 21.svg";
 import Cuentanos from "../assets/Trazado 20.svg";
 import Logout from "../assets/Grupo 26.svg";
+import Lupa from '../assets/Grupo 636.svg'
 
 function Products() {
     const [cosas, setCosas] = useState([]); 
@@ -28,7 +29,7 @@ function Products() {
         },
         {
             title: 'Catalogo',
-            path: '/catalogo',
+            path: '/products',
             icon: Catalogo,
             cName: 'nav-text'
         },
@@ -98,7 +99,7 @@ function Products() {
     const showSidebar = () => setSidebar(!sidebar)
 
      useEffect(() => {
-        const baseUrl = "https://www.wonapp.co/products/top";
+        const baseUrl = "https://www.wonapp.co/products/search?page=1&per_page=20&category=&subcategory=";
         
         const config = {
             headers: {
@@ -106,13 +107,6 @@ function Products() {
             }
         }
         
-            /* axios.get(baseUrl, config)
-            .then((response) => {
-                setCosas(response.data.data);
-                console.log('cosas', cosas)})
-               
-            .catch((error) => {console.log(error)}) */
-
             fetch(baseUrl, config)
             .then((res) => res.json())
             .then((data) => {
@@ -120,9 +114,12 @@ function Products() {
               setCosas(data.data);
               
             });
-            console.log(cosas);
-        
+                    
     }, []) 
+
+    const addDefaultSrc = (ev) =>{
+        ev.target.src = LogoRojo
+      }
 
     return (
         <>
@@ -133,45 +130,45 @@ function Products() {
         </div>
         <div className="navbar2">
             <div>
-                sidebar
+                
             </div>
-            <Link to = "#" >
-                <div >TOP 10</div>
+            <Link className="navbar2-link" to = "#" >
+                <a>TOP 10</a>
             </Link>
-            <Link to = "#" >
-                <div >APPS</div>
+            <Link className="navbar2-link" to = "#" >
+                <a>APPS</a>
             </Link>
-            <Link to = "#" >
-                <div >BONOS</div>
+            <Link className="navbar2-link" to = "#" >
+                <a>BONOS</a>
             </Link>
-            <Link to = "#" >
-                <div >PAQUETES</div>
+            <Link className="navbar2-link" to = "#" >
+                <a>PAQUETES</a>
             </Link>
-            <Link to = "#" >
-                <div >RECARGAS</div>
+            <Link className="navbar2-link" to = "#" >
+                <a>RECARGAS</a>
             </Link>
             <div>
-                nada
+                
             </div>
             <div>
-                boton
+                <button className="btn"><img src={Wonedero}/>$ 100.000</button>
             </div>
             <div>
-                lupa
+                <img className="lupa" src={Lupa}/>
             </div>
         </div>
         <nav className= {sidebar ? 'nav-menu active' : 'nav-menu'}>
             <ul className="nav-menu-items">
                 <li className="navbar-toggle">
                     <Link to="#" className="menu-bars">
-                        <img className="logo" src = {Logo}/>
+                        <img className="logo" src = {Logo} alt="logo"/>
                     </Link>
                 </li>
                 {sidebarData.map((item, index) => {
                     return (
                         <li key={index} className={item.cName}>
                             <Link to={item.path}>
-                                <img src={item.icon} />
+                                <img src={item.icon} alt={item.title} />
                                 <span>{item.title}</span>
                             </Link>
                         </li>
@@ -184,7 +181,7 @@ function Products() {
                   return (
                       <div key={index} className="product-card">
                           <div className="image-box">
-                            <img src={item.image_url} className="product-image" />
+                            <img onError={ addDefaultSrc}  src={item.image_url} className="product-image" alt={item.name}/>
                           </div>
                          
                           <span className="name">{item.name}</span>
