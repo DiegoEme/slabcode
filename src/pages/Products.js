@@ -15,6 +15,7 @@ import Legal from "../assets/Trazado 21.svg";
 import Cuentanos from "../assets/Trazado 20.svg";
 import Logout from "../assets/Grupo 26.svg";
 import Lupa from '../assets/Grupo 636.svg'
+import Hamburguesa from '../assets/Hamburguesa.svg';
 
 function Products() {
     const [cosas, setCosas] = useState([]); 
@@ -124,8 +125,8 @@ function Products() {
     return (
         <>
         <div className="navbar">
-            <Link to = "#" className="menu-bars">
-                <div onClick={showSidebar}>x</div>
+            <Link to = "#" >
+                <img className="menu-bars" onClick={showSidebar} src={Hamburguesa}/>
             </Link>
         </div>
         <div className="navbar2">
@@ -158,7 +159,7 @@ function Products() {
             </div>
         </div>
         <nav className= {sidebar ? 'nav-menu active' : 'nav-menu'}>
-            <ul className="nav-menu-items">
+            <ul onClick={showSidebar} className="nav-menu-items">
                 <li className="navbar-toggle">
                     <Link to="#" className="menu-bars">
                         <img className="logo" src = {Logo} alt="logo"/>
