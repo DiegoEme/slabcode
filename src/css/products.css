@@ -219,5 +219,16 @@ main {
   .navbar2 {
     display: flex;
     justify-content: space-between;
+    font-size: 13px;
+  }
+  .product-card {
+    width: 150px;
+    height: 166px;
+    font-size: 14px;
+  }
+
+  .image-box {
+    height: 85px;
+    width: 107px;
   }
 }

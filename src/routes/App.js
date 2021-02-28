@@ -7,9 +7,10 @@ import Products from '../pages/Products';
 function App() {
   return (
     <BrowserRouter>
+    
       <Switch>
         <Route exact path="/" component={Login}/>
-        <Route exact path="/products" component = {Products}/>
+        <Route exact path="/products" component = {Products}/>        
       </Switch>
     </BrowserRouter>
   );
